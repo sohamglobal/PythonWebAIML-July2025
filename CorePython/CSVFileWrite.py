@@ -1,0 +1,11 @@
+eno=int(input('Enter employee number : '))
+enm=input('Enter name : ')
+dp=input('Enter department : ')
+po=input('Enter post : ')
+lo=input('Enter location : ')
+sal=float(input('Enter salary : '))
+
+file=open('emp.csv','a')
+file.write(f'{eno},{enm},{dp},{po},{lo},{sal}\n')
+print('your data is stored in a CSV file')
+file.close()
