@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>User Registration</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(135deg, #74ebd5 0%, #ACB6E5 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .card {
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-8 col-lg-6">
+      <div class="card p-4">
+        <h3 class="text-center text-primary mb-4">User Registration Form</h3>
+        <form action="UserRegister.py" method="POST" enctype="multipart/form-data">
+          
+          <!-- Name -->
+          <div class="mb-3">
+            <label class="form-label">Full Name</label>
+            <input type="text" name="name" class="form-control" required>
+          </div>
+
+          <!-- Gender -->
+          <div class="mb-3">
+            <label class="form-label">Gender</label><br>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="gender" value="Male" required>
+              <label class="form-check-label">Male</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="gender" value="Female">
+              <label class="form-check-label">Female</label>
+            </div>
+          </div>
+
+          <!-- Qualification Dropdown -->
+          <div class="mb-3">
+            <label class="form-label">Qualification</label>
+            <select name="qualification" class="form-select" required>
+              <option value="">Select Qualification</option>
+              <option value="B.Tech">B.Tech</option>
+              <option value="M.Tech">M.Tech</option>
+              <option value="B.Sc">B.Sc</option>
+              <option value="M.Sc">M.Sc</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+
+          <!-- User Intro -->
+          <div class="mb-3">
+            <label class="form-label">User Introduction</label>
+            <textarea name="intro" class="form-control" rows="3" placeholder="Write about yourself..." required></textarea>
+          </div>
+
+          <!-- Date of Passing -->
+          <div class="mb-3">
+            <label class="form-label">Date of Passing</label>
+            <input type="date" name="date_of_passing" class="form-control" required>
+          </div>
+
+          <!-- Profile Choices (Checkboxes) -->
+          <div class="mb-3">
+            <label class="form-label">Profile Choices</label><br>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" name="profile_choices" value="Developer">
+              <label class="form-check-label">Developer</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" name="profile_choices" value="Tester">
+              <label class="form-check-label">Tester</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" name="profile_choices" value="Analyst">
+              <label class="form-check-label">Analyst</label>
+            </div>
+          </div>
+
+          <!-- Upload Resume -->
+          <div class="mb-3">
+            <label class="form-label">Upload Resume</label>
+            <input type="file" name="resume" class="form-control" accept=".pdf,.doc,.docx" required>
+          </div>
+
+          <!-- Submit Button -->
+          <div class="d-grid">
+            <button type="submit" class="btn btn-primary btn-lg">Register</button>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

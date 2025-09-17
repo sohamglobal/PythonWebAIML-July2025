@@ -1,0 +1,75 @@
+<html>
+    <head>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="container">
+            <br><br>
+            <h1 class="display-4">Registration Form</h1>
+            <hr>
+            <form name="regform" method="post" action="registeruser.py">
+
+            <table class="table">
+                <tr>
+                    <td>Name</td>
+                    <td><input type="text" name="usernm" class="form-control"></td>
+                </tr>
+                <tr>
+                    <td>Password</td>
+                    <td><input type="password" name="psw" class="form-control" required></td>
+                </tr>
+                <tr>
+                    <td>Qualification</td>
+                    <td>
+                        <select name="qual" class="form-control">
+                            <option value="be">BE</option>
+                            <option value="btech">B.tech.</option>
+                            <option value="mca">MCA</option>
+                            <option value="mba">MBA</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Gender</td>
+                    <td>
+                        <input type="radio" name="gen" value="male"> Male
+                        <input type="radio" name="gen" value="female"> Female
+                    </td>
+                </tr>
+                <tr>
+                    <td>Profile Choices</td>
+                    <td>
+                        <input type="checkbox" name="prof1" value="analyst"> Data Analyst
+                        <input type="checkbox" name="prof2" value="engineer"> Data Engineer
+                        <input type="checkbox" name="prof3" value="developer"> Web Developer
+                    </td>
+                </tr>
+                <tr>
+                    <td>Your Intro</td>
+                    <td>
+                        <textarea name="intro" rows="3" cols="30" class="form-control"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Date of Passing</td>
+                    <td>
+                        <input type="date" name="passdt" class="form-control">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Upload Resume</td>
+                    <td>
+                        <input type="file" name="res" class="form-control">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="submit" value="Submit" class="btn btn-outline-info">
+                    </td>
+                </tr>
+            </table>
+            </form>
+        </div>
+
+    </body>
+</html>
