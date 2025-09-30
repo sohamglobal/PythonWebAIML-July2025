@@ -23,4 +23,6 @@ urlpatterns = [
     path('sports/',views.home),
     path('login/',views.login),
     path('check/',views.check),
+    path('newstudent/',views.newstudent),
+    path('addstud/',views.addstudent),
 ]
