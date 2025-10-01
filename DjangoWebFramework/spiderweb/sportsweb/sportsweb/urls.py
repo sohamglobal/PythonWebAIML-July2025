@@ -25,4 +25,5 @@ urlpatterns = [
     path('check/',views.check),
     path('newstudent/',views.newstudent),
     path('addstud/',views.addstudent),
+    path('report/',views.showreport),
 ]
