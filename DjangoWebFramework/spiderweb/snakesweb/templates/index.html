@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <br><br>
+        <h1 class="display-5">Snakes Web</h1>
+        <hr>
+        <img src="/static/snake.gif" height="250px">
+        <br><br>
+
+        <form action="/searchstud/" method="post">
+            {% csrf_token %}
+            Registration Number 
+            <input type="number" name="regno" class="form-control">
+            <input type="submit" value="Search" class="btn btn-outline-info">
+        </form>
+
+        <br>
+        <form action="/searchcars/" method="post">
+            {% csrf_token %}
+            Company 
+            <select name="company" class="form-control">
+                <option value="maruti suzuki">Maruti Suzuki</option>
+                <option value="skoda">Skoda</option>
+                <option value="volkswagen">Volkswagen</option>
+                <option value="honda">Honda</option>
+                <option value="tata">Tata</option>
+                <option value="hyundai">Hyundai</option>
+            </select>
+            <input type="submit" value="Search" class="btn btn-success">
+        </form>
+
+
+
+
+        <br><br>
+        <hr>
+        Developed by {{devby}}
+        <br>
+        &copy;{{comp}} 2025
+    </div>
+    
+</body>
+</html>
