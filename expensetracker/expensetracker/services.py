@@ -28,4 +28,33 @@ class TrackerServices:
         except:
             msg='failed'
         return msg
+    
+    def addnewexpense(self,uid,dt,cat,des,amt,mode):
+        try:
+            con=pymysql.connect(host='mysql-pyprojects-python-apps.b.aivencloud.com',port=18733,user='praffull',password='AVNS_rAHnLeXr31XIltE9DAh',database='sharayudb')
+            curs=con.cursor()
+            curs.execute(f"insert into expenses(userid,expense_date,category,description,amount,paymentmode) values('{uid}','{dt}','{cat}','{des}',{amt},'{mode}')")
+            con.commit()
+            msg='Expense entry recorded successfully'
+            con.close()
+        except:
+            msg='Expense entry failed'
 
+        return msg
+    
+    def generatereport(self,uid):
+        con=pymysql.connect(host='mysql-pyprojects-python-apps.b.aivencloud.com',port=18733,user='praffull',password='AVNS_rAHnLeXr31XIltE9DAh',database='sharayudb')
+        curs=con.cursor()
+        curs.execute(f"select * from expenses where userid='{uid}'")
+        data=curs.fetchall()
+        con.close()
+        return data
+    
+    def changeuserpassword(uid,opass,npass1,npass2):
+        if npass1==npass2:
+            con=pymysql.connect(host='mysql-pyprojects-python-apps.b.aivencloud.com',port=18733,user='praffull',password='AVNS_rAHnLeXr31XIltE9DAh',database='sharayudb')
+            curs=con.cursor()
+            curs.execute(f"")
+            status="Password changed successfully"
+        else:
+            status="New passwords mismatched"

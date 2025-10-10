@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Add Expense Entry</title>
+
+  <!-- Bootstrap CSS -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+
+  <!-- Font Awesome Icons -->
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    rel="stylesheet"
+  />
+
+  <style>
+    body {
+      background: linear-gradient(135deg, #98b5f7, #1ec97c);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: "Poppins", sans-serif;
+    }
+
+    .card {
+      border: none;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      padding: 2rem;
+      background-color: #ffffff;
+      max-width: 550px;
+      width: 100%;
+    }
+
+    .card h3 {
+      text-align: center;
+      color: #333;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+    }
+
+    .form-control, .form-select {
+      border-radius: 10px;
+      box-shadow: none;
+      border: 1px solid #ccc;
+      transition: all 0.3s ease;
+    }
+
+    .form-control:focus, .form-select:focus {
+      border-color: #fda085;
+      box-shadow: 0 0 0 0.2rem rgba(253, 160, 133, 0.25);
+    }
+
+    .btn-primary {
+      background: linear-gradient(90deg, #ff9966, #ff5e62);
+      border: none;
+      border-radius: 10px;
+      font-weight: 600;
+      width: 100%;
+      transition: all 0.3s ease;
+    }
+
+    .btn-primary:hover {
+      background: linear-gradient(90deg, #ff5e62, #ff9966);
+      transform: scale(1.02);
+    }
+
+    .back-link {
+      text-align: center;
+      display: block;
+      margin-top: 1rem;
+      color: #007bff;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h3><i class="fa-solid fa-wallet me-2 text-warning"></i> Add New Expense</h3>
+
+    <form method="POST" action="/addexp/">
+      {% csrf_token %}
+
+      <!-- Expense Date -->
+      <div class="mb-3">
+        <label for="expense_date" class="form-label">
+          <i class="fa-solid fa-calendar-days me-2 text-danger"></i>Expense Date
+        </label>
+        <input
+          type="date"
+          class="form-control"
+          id="expense_date"
+          name="expense_date"
+          required
+        />
+      </div>
+
+      <!-- Category -->
+      <div class="mb-3">
+        <label for="category" class="form-label">
+          <i class="fa-solid fa-tags me-2 text-success"></i>Category
+        </label>
+        <select class="form-select" id="category" name="category" required>
+          <option value="">-- Select Category --</option>
+          <option value="Food">Food</option>
+          <option value="Entertainment">Entertainment</option>
+          <option value="Bills">Bills</option>
+          <option value="Shopping">Shopping</option>
+        </select>
+      </div>
+
+      <!-- Description -->
+      <div class="mb-3">
+        <label for="description" class="form-label">
+          <i class="fa-solid fa-pen me-2 text-primary"></i>Description
+        </label>
+        <textarea
+          class="form-control"
+          id="description"
+          name="description"
+          rows="3"
+          placeholder="Enter expense details..."
+          maxlength="500"
+        ></textarea>
+      </div>
+
+      <!-- Amount -->
+      <div class="mb-3">
+        <label for="amount" class="form-label">
+          <i class="fa-solid fa-indian-rupee-sign me-2 text-info"></i>Amount
+        </label>
+        <input
+          type="number"
+          class="form-control"
+          id="amount"
+          name="amount"
+          min="1"
+          step="0.01"
+          required
+        />
+      </div>
+
+      <!-- Payment Mode -->
+      <div class="mb-3">
+        <label for="paymentmode" class="form-label">
+          <i class="fa-solid fa-credit-card me-2 text-dark"></i>Payment Mode
+        </label>
+        <select class="form-select" id="paymentmode" name="paymentmode" required>
+          <option value="">-- Select Payment Mode --</option>
+          <option value="UPI">UPI</option>
+          <option value="Cash">Cash</option>
+          <option value="Credit Card">Credit Card</option>
+        </select>
+      </div>
+
+      <!-- Submit Button -->
+      <button type="submit" class="btn btn-primary mt-3">
+        <i class="fa-solid fa-plus me-2"></i> Add Expense
+      </button>
+
+      <!-- Back to Dashboard -->
+      <a href="/dashboard/" class="back-link">
+        <i class="fa-solid fa-arrow-left"></i> Back to Dashboard
+      </a>
+    </form>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

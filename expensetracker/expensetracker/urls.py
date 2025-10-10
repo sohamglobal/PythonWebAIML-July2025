@@ -26,4 +26,8 @@ urlpatterns = [
     path('login/',views.login),
     path('dashboard/',views.dashboard),
     path('change/',views.change),
+    path('newexp/',views.newexpense),
+    path('addexp/',views.addexpense),
+    path('report/',views.showreport),
+    path('changepass/',views.changepass),
 ]
