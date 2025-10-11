@@ -1,7 +1,9 @@
 from django.shortcuts import render,redirect
 from .services import TrackerServices
+from django.views.decorators.cache import never_cache
 
 def homepage(request):
+    request.session['authenticated']=False
     return render(request,"index.html")
 
 def registerform(request):
@@ -38,9 +40,13 @@ def login(request):
             request.session['authenticated']=False
             return render(request,"loginfailed.html")
 
-
+@never_cache
 def dashboard(request):
-    return render(request,"dashboard.html")
+    if request.session.get('authenticated'):
+        uid=request.session.get('user')
+        return render(request,"dashboard.html",{'userid':uid})
+    else:
+        return render(request,"index.html")
 
 def change(request):
     return render(request,"changepassword.html")
@@ -79,4 +85,29 @@ def changepass(request):
 
     return render(request,"ChangePassStatus.html",{"status":status})    
 
+def modify(request):
+    return render(request,"ModifyExpense.html") 
+
+def delete(request):
+    return render(request,"DeleteExpense.html") 
+
+def delexpense(request):
+    if request.method=="POST":
+        uid=request.session.get('user')
+        eid=request.POST.get("expenseid")
+        obj=TrackerServices()
+        msg=obj.deleteexpense(uid,eid)
     
+    return render(request,"DeleteStatus.html",{"message":msg})
+
+def search(request):
+    return render(request,"SearchExpenses.html") 
+
+def searchexp(request):
+    if request.method=="POST":
+        uid=request.session.get('user')
+        sdt=request.POST.get("expense_date")
+        obj=TrackerServices()
+        data=obj.searchexpondate(uid,sdt)
+    
+    return render(request,"SearchResult.html",{"expdt":sdt,"expdata":data})

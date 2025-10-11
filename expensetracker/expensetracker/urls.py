@@ -30,4 +30,9 @@ urlpatterns = [
     path('addexp/',views.addexpense),
     path('report/',views.showreport),
     path('changepass/',views.changepass),
+    path('modify/',views.modify),
+    path('delete/',views.delete),
+    path('delexpense/',views.delexpense),
+    path('search/',views.search),
+    path('searchexpenses/',views.searchexp),
 ]

@@ -50,11 +50,37 @@ class TrackerServices:
         con.close()
         return data
     
-    def changeuserpassword(uid,opass,npass1,npass2):
+    def changeuserpassword(self,uid,opass,npass1,npass2):
         if npass1==npass2:
             con=pymysql.connect(host='mysql-pyprojects-python-apps.b.aivencloud.com',port=18733,user='praffull',password='AVNS_rAHnLeXr31XIltE9DAh',database='sharayudb')
             curs=con.cursor()
-            curs.execute(f"")
-            status="Password changed successfully"
+            cnt=curs.execute(f"update users set password='{npass1}' where userid='{uid}' and password='{opass}'")
+            con.commit()
+            if cnt>0:
+                status="Password changed successfully"
+            else:
+                status="Current password incorrect"
+            con.close()
         else:
             status="New passwords mismatched"
+        return status
+    
+    def searchexpondate(self,uid,sdt):
+        con=pymysql.connect(host='mysql-pyprojects-python-apps.b.aivencloud.com',port=18733,user='praffull',password='AVNS_rAHnLeXr31XIltE9DAh',database='sharayudb')
+        curs=con.cursor()
+        curs.execute(f"select * from expenses where userid='{uid}' and expense_date='{sdt}'")
+        data=curs.fetchall()
+        con.close()
+        return data
+    
+    def deleteexpense(self,uid,eid):
+        con=pymysql.connect(host='mysql-pyprojects-python-apps.b.aivencloud.com',port=18733,user='praffull',password='AVNS_rAHnLeXr31XIltE9DAh',database='sharayudb')
+        curs=con.cursor()
+        cnt=curs.execute(f"delete from expenses where userid='{uid}' and expenseid={eid}")
+        con.commit()
+        if cnt==1:
+            msg="Expense entry deleted"
+        else:
+            msg="Not Found for the user"
+        con.close()
+        return msg

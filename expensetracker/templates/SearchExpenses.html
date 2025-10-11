@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Search Expenses by Date</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(135deg, #ffecd2, #fcb69f);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .search-container {
+      background-color: white;
+      border-radius: 20px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+      padding: 40px;
+      width: 400px;
+      text-align: center;
+      transition: transform 0.3s;
+    }
+
+    .search-container:hover {
+      transform: scale(1.03);
+    }
+
+    .form-label {
+      font-weight: 600;
+      color: #444;
+    }
+
+    .btn-custom {
+      background: linear-gradient(90deg, #ff9966, #ff5e62);
+      color: white;
+      font-weight: bold;
+      border: none;
+      border-radius: 25px;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .btn-custom:hover {
+      background: linear-gradient(90deg, #ff5e62, #ff9966);
+      transform: scale(1.05);
+    }
+
+    h2 {
+      color: #333;
+      margin-bottom: 25px;
+      font-weight: 700;
+    }
+
+    footer {
+      text-align: center;
+      color: #444;
+      margin-top: 20px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="search-container">
+    <h2>🔍 Search Expenses</h2>
+    <form action="/searchexpenses/" method="POST">
+      {% csrf_token %}
+      <div class="mb-3">
+        <label for="expenseDate" class="form-label">Select Date</label>
+        <input type="date" class="form-control form-control-lg" id="expenseDate" name="expense_date" required>
+      </div>
+      <button type="submit" class="btn btn-custom btn-lg w-100 mt-3">Search</button>
+    </form>
+    <br>
+    <!-- Back Link -->
+      <a href="/dashboard/" class="back-link">
+        <i class="fa-solid fa-arrow-left"></i> Back to Dashboard
+      </a>
+
+      <br>
+      <footer>
+    <p>💰 Expense Tracker — Stay Smart, Stay Organized</p>
+  </footer>
+
+  </div>
+ 
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
