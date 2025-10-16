@@ -23,4 +23,5 @@ class BasicREST(Resource):
 api.add_resource(BasicREST,"/profile")
 app.run(debug=True)
 
+# http://127.0.0.1:5000/profile
 
