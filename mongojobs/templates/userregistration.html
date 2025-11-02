@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Job Profile Manager</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #ff7eb3, #65c7f7);
+            color: white;
+        }
+
+        .hero-section {
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        .hero-section img {
+            width: 110px;
+            margin-bottom: 15px;
+        }
+
+        .card {
+            border-radius: 15px;
+            box-shadow: 0px 0px 15px rgba(0,0,0,0.3);
+        }
+
+        .register-card {
+            background: white;
+            color: black;
+        }
+
+        .footer-text {
+            margin-top: 25px;
+            font-size: 14px;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <section class="hero-section">
+        <img src="https://cdn-icons-png.flaticon.com/512/9078/9078076.png" alt="Register User">
+        <h1 class="display-5" style="color: black;">Create New Account</h1>
+        <p class="lead px-4">
+            Register to manage job profiles, resumes, skills, applications, and more!
+        </p>
+    </section>
+
+    <!-- Registration Form -->
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-5">
+                <div class="card register-card p-4">
+
+                    <h3 class="text-center text-success mb-3">Register</h3>
+
+                    <form method="POST" action="/adduser/">
+                        {% csrf_token %}
+
+                        <div class="mb-3">
+                            <label for="userid" class="form-label">User ID</label>
+                            <input type="text" class="form-control" id="userid" name="userid"
+                                placeholder="Enter your user id" required autocomplete="off">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="password" name="password"
+                                placeholder="Enter password" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="usertype" class="form-label">User Type</label>
+                            <select class="form-select" id="usertype" name="usertype" required>
+                                <option value="" selected disabled>-- Select Role --</option>
+                                <option value="Seeker">Seeker</option>
+                                <option value="Recruiter">Recruiter</option>
+                            </select>
+                        </div>
+
+                        <button type="submit" class="btn btn-success w-100">Register</button>
+                    </form>
+
+                    <div class="text-center mt-3">
+                        <p>Already have an account? <a href="/jobs/">Login Here</a></p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <p class="text-center footer-text">
+        © 2025 Job Profile Manager | Powered by Django + MongoDB
+    </p>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
