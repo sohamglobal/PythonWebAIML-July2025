@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
+from pymongo import MongoClient
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -125,3 +126,6 @@ STATICFILES_DIRS=[BASE_DIR,"static"]
 SESSION_ENGINE="django.contrib.sessions.backends.db"
 SESSION_EXPIRE_AT_BROWSER_CLOSE=True
 SESSION_COOKIE_AGE=1800
+
+CLIENT=MongoClient("mongodb+srv://praffull:mongodb913@sharayucluster.vzrlbsf.mongodb.net/?appName=sharayucluster")
+DB=CLIENT["jobprojectdb"]

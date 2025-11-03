@@ -24,4 +24,8 @@ urlpatterns = [
     path('register/',views.register),
     path('adduser/',views.adduser),
     path('login/',views.login),
+    path('seeker/',views.seeker),
+    path('recruiter/',views.recruiter),
+    path('newprofile/',views.newprofile),
+    path('addprofile/',views.addprofile),
 ]

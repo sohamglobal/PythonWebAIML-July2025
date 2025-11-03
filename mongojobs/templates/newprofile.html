@@ -57,7 +57,7 @@
             <div class="col-md-8">
 
                 <div class="card bg-light text-dark p-4 mb-4">
-                    <form method="POST" action="{% url 'save_profile' %}">
+                    <form method="POST" action="/addprofile/">
                         {% csrf_token %}
 
                         <!-- Name -->
@@ -114,9 +114,9 @@
                         <div class="mb-3">
                             <label>Programming Languages</label>
                             <select name="languages" class="form-select" multiple size="3">
-                                <option>Java</option>
-                                <option>Python</option>
-                                <option>C#</option>
+                                <option value="java">Java</option>
+                                <option value="python">Python</option>
+                                <option value="c#">C#</option>
                             </select>
                         </div>
 
@@ -167,7 +167,7 @@
                 </div>
 
                 <div class="text-center">
-                    <a href="{% url 'seeker_home' %}" class="btn btn-dark">Back to Dashboard</a>
+                    <a href="/seeker/" class="btn btn-dark">Back to Dashboard</a>
                 </div>
 
             </div>

@@ -1,3 +1,6 @@
 db.createCollection("users");
 db.users.createIndex({ userid: 1 }, { unique: true })
 
+db.createCollection("profiles");
+db.profiles.createIndex({ userid: 1 }, { unique: true });
+
