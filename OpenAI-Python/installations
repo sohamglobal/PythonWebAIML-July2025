@@ -1,0 +1,3 @@
+pip install openai
+pip install sounddevice numpy
+pip install openai sounddevice scipy
